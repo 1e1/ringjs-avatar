@@ -226,7 +226,13 @@ class Avatar {
             this.ctx.fillStyle = this.options.colors[previous];
             //this.ctx.globalAlpha = (this.data.count - i) / this.data.count;
 
-            this.ctx.fillRect(coords.x, coords.y, 1, 1);
+            if (i === this.index) {
+                this.ctx.beginPath();
+                this.ctx.arc(coords.x, coords.y, Math.trunc(this.radius/25), 0, 2* Math.PI);
+                this.ctx.fill();
+            } else {
+                this.ctx.fillRect(coords.x, coords.y, 1, 1);
+            }
 
             next = current;
         }
@@ -319,11 +325,13 @@ class Avatar {
     updateAnimation() {
         this.reset();
 
+        const timeUnit = Math.trunc(Date.now() / 100);
         const i = this.number.length;
+
+        this.index = timeUnit % i;
         
         if (i === this.targetNumberLength) {
-            const secondUnit = Math.round(Date.now() / 100) % 50;
-            const loop = Math.sin(2* Math.PI * secondUnit / 50);
+            const loop = Math.sin(2* Math.PI * (timeUnit % 50) / 50);
             const targetBezierCoeff = 1 + loop / 12;
 
             if (Math.abs(this.options.ring_line_bezier_coeff - targetBezierCoeff) > 0.01) {
