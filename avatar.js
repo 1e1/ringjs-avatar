@@ -84,23 +84,23 @@ class Avatar {
         for (let i=0; i<10; i++) {
             this.data.details[i] = {
                 count: 0,
-                previous: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-                next: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+                //previous: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+                //next: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
             };
         }
 
         for (let i=0; i<n; i++) {
-            const previous = i==0 ? null : this.number[i-1];
+            //const previous = i==0 ? null : this.number[i-1];
             const current = this.number[i];
-            const next = i==n-1 ? null : this.number[i+1];
+            //const next = i==n-1 ? null : this.number[i+1];
 
             this.data.count += 1;
             this.data.details[current].count += 1;
-            previous === null ? null : this.data.details[current].previous[previous] += 1;
-            next === null ? null : this.data.details[current].previous[next] += 1;
+            //previous === null ? null : this.data.details[current].previous[previous] += 1;
+            //next === null ? null : this.data.details[current].previous[next] += 1;
         }
 
-        this.computePositions();
+        //this.computePositions();
 
         return this;
     }
