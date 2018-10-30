@@ -100,7 +100,7 @@ class Avatar {
             //next === null ? null : this.data.details[current].previous[next] += 1;
         }
 
-        //this.computePositions();
+        this.computePositions();
 
         return this;
     }
@@ -121,7 +121,7 @@ class Avatar {
             this.data.details[i].endAngle = sum * coeff;
         }
 
-        this.resetIndexes();
+        //this.resetIndexes();
 
         return this;
     }
