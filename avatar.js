@@ -114,7 +114,7 @@ class Avatar {
             this.data.details[i].previousSum = sum;
             this.data.details[i].startAngle = sum * coeff;
 
-            sum += this.data.details[i].count
+            sum += this.data.details[i].count;
             this.data.details[i].angle = this.data.details[i].count * coeff;
 
             this.data.details[i].sum = sum;
